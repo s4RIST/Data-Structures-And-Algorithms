@@ -1,0 +1,57 @@
+
+#include <iostream>
+using namespace std;
+#include "safeArray.h"
+
+
+
+safeArray::safeArray() //creating new object
+{
+    //size = 10; -> not needed but handy internal size
+    //arr = nullptr; -> cleanup
+    arr = new int[size]; // -> makes a new array of pointers.  
+
+    arr = new int[size]; //give it the correct size
+    for (int i = 0; i < size; i++) //loop over the array to insert values.
+    {
+        arr[i] = 0;
+        cout << arr[i];
+    }
+    cout << "Constructor called" << endl;
+}
+
+safeArray::safeArray(int a)
+{
+    arr = new int[size]; //give it the correct size
+    for (int i = 0; i < size; i++) //loop over the array to insert values.
+    {
+        arr[i] = i;
+        cout << arr[i];
+    }
+}
+
+safeArray::~safeArray() // deleting object
+{
+    
+    delete[] arr;
+    arr = nullptr;  // (MAKE SURE >>>>RAW POINTER<<<< IS ALWAYS POINTING AT NOTHING)
+
+    cout << "Destructor called" << endl;
+}
+
+int safeArray::at(int p)
+{
+    
+    return arr[p];
+}
+
+int safeArray::operator[](int p)   // [] () + - / % && *
+{
+    return arr[p];
+}
+int safeArray::operator+(int)
+{
+    cout << "Hello" << endl;
+    return 0;
+}
+//I want    L9 cout << "Number at pos 7 = " 

@@ -1,0 +1,15 @@
+#pragma once
+//Firstly create a class in header/decleration to form the safearray.
+class safeArray {
+private:
+	int size = 10;
+	int*arr; // pointer to integer -> it can be like int*arr -> space doesnt matter.
+public: // use screwdriver to make various definitions in cpp file.
+	safeArray();//constructor
+	safeArray(int);//
+	~safeArray(); // destructor
+
+	int at(int); // int output -> int pull
+	int operator[](int);
+	int operator+(int);
+};

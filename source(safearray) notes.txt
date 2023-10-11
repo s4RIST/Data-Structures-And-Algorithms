@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+#include "safeArray.h"
+
+int main()
+{
+    cout << "Hello World!\n";
+    safeArray myArray;
+    cout << "Number at pos 7 = " << myArray.at(7) << endl; // at[7] doesnt work because 
+    cout << "Number at pos 7 = " << myArray[7] << endl;
+    cout << "Number at pos 7 = " << myArray+0 << endl;
+}
