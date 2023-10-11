@@ -1,0 +1,11 @@
+
+#include <iostream>
+using namespace std;
+#include "safeArray.h"
+int main()
+{
+    cout << "Hello World!\n";
+    myArray(10);
+    cout << endl;
+    myArray(30);
+}

@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+#include "safeArray.h"
+
+myArray::myArray()
+{
+}
+
+myArray::myArray(int size)
+{
+	arr = new int[size];
+    for (int i = 0; i < size; i++) //loop over the array to insert values.
+    {
+        arr[i] = 0;
+        cout << arr[i];
+    }
+}
+
+
+myArray::~myArray()
+{
+}
+
+}
+//I want    L9 cout << "Number at pos 7 = " 

@@ -1,0 +1,11 @@
+#pragma once
+
+class myArray {
+private:
+	int size = 10;
+	int* arr;
+public:
+	myArray();
+	myArray(int);
+	~myArray();
+};
