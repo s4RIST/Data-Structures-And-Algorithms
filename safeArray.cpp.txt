@@ -1,25 +1,15 @@
 #include <iostream>
 using namespace std;
 #include "safeArray.h"
-
-myArray::myArray()
+int main()
 {
-}
-
-myArray::myArray(int size)
-{
-	arr = new int[size];
-    for (int i = 0; i < size; i++) //loop over the array to insert values.
-    {
-        arr[i] = 0;
-        cout << arr[i];
+    
+    safeArray big(30);
+    cout << endl;
+    safeArray small(10);
+    cout << endl;
+    for (int i = 0; i < 10; i++) {
+        big.add(i, small.at(i));  //using two objects, firstly we take the position of first array and place in the element of the second array.
     }
+    
 }
-
-
-myArray::~myArray()
-{
-}
-
-}
-//I want    L9 cout << "Number at pos 7 = " 
