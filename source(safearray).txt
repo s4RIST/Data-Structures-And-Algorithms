@@ -1,11 +1,15 @@
-
 #include <iostream>
 using namespace std;
 #include "safeArray.h"
 int main()
 {
-    cout << "Hello World!\n";
-    myArray(10);
+    
+    safeArray big(30);
     cout << endl;
-    myArray(30);
+    safeArray small(10);
+    cout << endl;
+    for (int i = 0; i < 10; i++) {
+        big.add(i, small.at(i));  //using two objects, firstly we take the position of first array and place in the element of the second array.
+    }
+    
 }
