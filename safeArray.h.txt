@@ -1,11 +1,13 @@
 #pragma once
 
-class myArray {
+class safeArray {
 private:
 	int size = 10;
-	int* arr;
+	int*arr;
 public:
-	myArray();
-	myArray(int);
-	~myArray();
+	safeArray();
+	safeArray(int);
+	~safeArray();
+	int at(int);
+	int add(int position, int element);
 };
