@@ -1,15 +1,40 @@
 #include <iostream>
 using namespace std;
 #include "safeArray.h"
-int main()
+
+safeArray::safeArray()
 {
-    
-    safeArray big(30);
-    cout << endl;
-    safeArray small(10);
-    cout << endl;
-    for (int i = 0; i < 10; i++) {
-        big.add(i, small.at(i));  //using two objects, firstly we take the position of first array and place in the element of the second array.
-    }
-    
 }
+
+safeArray::safeArray(int size)
+{
+    arr = new int[size];
+    for (int i = 0; i < size; i++) //loop over the array to insert values.
+    {
+        arr[i] = i;
+        cout << i;
+    }
+}
+
+int safeArray::at(int p)
+{
+    return arr[p];
+}
+
+int safeArray::add(int position, int element) 
+{
+    arr[position] = element;
+}
+
+
+safeArray::~safeArray()
+{
+    delete[] arr;
+    arr = nullptr;  // (>>>>RAW POINTER<<<< IS POINTING AT NOTHING)
+
+    cout << "Destructor called" << endl;
+}
+
+//I want    L9 cout << "Number at pos 7 = " 
+
+
