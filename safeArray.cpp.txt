@@ -4,26 +4,41 @@ using namespace std;
 
 safeArray::safeArray()
 {
+    size = 10;
+    arr = new int[size];
 }
 
 safeArray::safeArray(int size)
 {
     arr = new int[size];
-    for (int i = 0; i < size; i++) //loop over the array to insert values.
-    {
-        arr[i] = i;
-        cout << i;
+    if (size > 15) {
+        for (int i = 0; i < size; i++) //loop over the array to insert values.
+        {
+            arr[i] = 0;
+            cout << arr[i];
+        }
     }
+    else
+        for (int i = 0; i < size; i++) //loop over the array to insert values.
+        {
+            arr[i] = i;
+            cout << arr[i];
+        }
 }
+
+
+
 
 int safeArray::at(int p)
 {
+    //if() do this tomorrow, make loop for index and size
     return arr[p];
 }
 
-int safeArray::add(int position, int element) 
+int safeArray::add(int position, int element)
 {
     arr[position] = element;
+    return 0;
 }
 
 
@@ -35,6 +50,12 @@ safeArray::~safeArray()
     cout << "Destructor called" << endl;
 }
 
+
+ostream& operator<<(ostream& lhs, const safeArray& rhs) {
+    for (int i = 0; i < rhs.size; i++) {
+        lhs << rhs.arr[i];
+    }
+    return lhs;
+}
+
 //I want    L9 cout << "Number at pos 7 = " 
-
-
