@@ -1,9 +1,10 @@
 #pragma once
 
 class safeArray {
+	friend ostream& operator<<(ostream& lhs, const safeArray& rhs); // fucntion decleration for <<
 private:
 	int size = 10;
-	int*arr;
+	int* arr;
 public:
 	safeArray();
 	safeArray(int);
