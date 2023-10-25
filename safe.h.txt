@@ -1,0 +1,17 @@
+#pragma once
+
+class safeArray {
+	friend ostream& operator<<(ostream& lhs, const safeArray& rhs); // fucntion decleration for <<
+private:
+	int size;
+	int* arr;
+	int position = 0;
+public:
+	safeArray();
+	safeArray(int);
+	~safeArray();
+	int at(int);
+	int add(int element);
+	int getNumElements();
+	int getCapacity();
+};

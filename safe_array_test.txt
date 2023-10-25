@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+#include "safeArray.h"
+
+safeArray::safeArray()
+{
+    size = 0;
+    arr = new int[size];
+
+}
+
+safeArray::safeArray(int size)
+{
+    arr = new int[size];
+    int position = 0;
+    if (size > 15) {
+        for (int i = 0; i < size; i++) //loop over the array to insert values.
+        {
+            arr[i] = 0;
+            cout << arr[i];
+        }
+    }
+    else
+        for (int i = 0; i < size; i++) //loop over the array to insert values.
+        {
+            arr[i] = i;
+            cout << arr[i];
+        }
+}
+
+
+int safeArray::getNumElements()
+{
+    int counter = 0;
+    for (int i = 0; i <= size; i++) {
+        if (arr[i] != NULL) {
+            counter++;
+        }
+    }
+    cout << "\n" << "Amount of elements in the array: " << counter << "\n";
+    return counter;
+}
+
+int safeArray::getCapacity()
+{
+    //cout << "\n" << "Capacity of the array: " << size << "\n";
+    return size;
+}
+
+int safeArray::at(int p)
+{
+    //if() do this tomorrow, make loop for index and size
+    return arr[p];
+}
+
+int safeArray::add(int element)
+{
+    
+    
+
+    //once the position of the element is further than size, increase array size and continue as normal
+    //check :
+    if (position >= getCapacity()) {
+        cout << "\n" << "Size increasing";
+        size = size * 2;
+        arr[position] = element;
+        position++;
+    }
+    else
+        arr[position] = element;
+        position++;
+    return 0;
+
+}
+
+
+
+
+
+safeArray::~safeArray()
+{
+    delete[] arr;
+    arr = nullptr;  // (>>>>RAW POINTER<<<< IS POINTING AT NOTHING)
+
+    cout << "Destructor called" << endl;
+}
+
+
+ostream& operator<<(ostream& lhs, const safeArray& rhs) {
+    for (int i = 0; i < rhs.size; i++) {
+        lhs << rhs.arr[i];
+    }
+    return lhs;
+}
+
+//I want    L9 cout << "Number at pos 7 = " 
