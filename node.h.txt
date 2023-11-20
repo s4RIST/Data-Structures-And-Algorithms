@@ -1,0 +1,11 @@
+#pragma once
+using namespace std;
+#include "iostream";
+#include "Contact.h";
+class Node {
+private:
+	Contact name;
+	Node* nextNode;
+public:
+	Node(string = "", int = 0);
+};

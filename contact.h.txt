@@ -1,0 +1,11 @@
+#pragma once
+using namespace std;
+#include "iostream";
+class Contact {
+	friend class Node;
+private:
+	string name;
+	int number;
+public:
+	Contact(string name = "", int number = 0);
+};
