@@ -1,11 +1,11 @@
 #pragma once
 using namespace std;
-#include "iostream";
+#include <iostream>;
 class Contact {
 	friend class Node;
 private:
-	string name;
+	string name;   //attributes are: string name and int number.
 	int number;
 public:
-	Contact(string name = "", int number = 0);
+	Contact(string name, int number);  //one constructor to make a contact with name and number, does not have a default constructor.
 };

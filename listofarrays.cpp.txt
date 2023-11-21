@@ -2,28 +2,36 @@
 
 Contact::Contact(string name, int number)
 {
-	string name = "James";
+	string name = "";
 	int number = 0;
 };
 
 
-Node::Node(string name = "", int number = 0) 
+
+Node::Node(Node* next, Contact name)//The Node will have a constructor that makes a node containing a contact. 
 {
-	name = "Jeff";
-	number = 10;
-	nextNode = nullptr;
+	next = nullptr;
+	string name;
 }
 
-bool List::empty()
+bool List::empty()   //bool empty() which returns true if the list is empty
 {
-	if (head == NULL) {
+	if (head == nullptr) {
 		return true;
 	}
 	else return false;
 }
 
-List::List(Node* head)
+List::List() // Creates a constructor to make an empty list.
 {
+	head = nullptr;
+}
 
-};
+List::~List()
+{
+	head = nullptr;
+	delete head;
+}
+
+
 

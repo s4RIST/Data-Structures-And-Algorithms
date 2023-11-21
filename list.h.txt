@@ -1,12 +1,14 @@
 #pragma once
 using namespace std;
-#include "iostream";
+#include <iostream>;
 #include "Node.h";
 
 class List {
 private:
-	Node* head = nullptr;
+	Node* head = nullptr;   //attribute is: node* head = nullptr.
 public:
-	bool empty();
-	List(Node* head);
+	
+	bool empty();  //have two methods bool empty() which returns true if the list is empty and a constructor to make an empty list.
+	List();
+	~List();
 };

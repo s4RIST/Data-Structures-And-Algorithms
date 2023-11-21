@@ -1,11 +1,11 @@
 #pragma once
 using namespace std;
-#include "iostream";
+#include <iostream>;
 #include "Contact.h";
-class Node {
+class Node {  //a contact and a pointer to the next node.
 private:
 	Contact name;
 	Node* nextNode;
 public:
-	Node(string = "", int = 0);
+	Node(Node* next, Contact name); // a constructor that makes a node containing a contact.
 };

@@ -1,5 +1,6 @@
 #include "List.h";
 
-int main(){
-
+int main() {
+	new Contact("James", 5);
+	//List* Node = new List(new Contact());
 };
