@@ -1,0 +1,22 @@
+
+#pragma once
+using namespace std;
+
+
+class safeArray {
+    friend ostream& operator<<(ostream& lhs, const safeArray& rhs); // fucntion decleration for <<
+private:
+    int capacity = 10;
+    int size = 10;
+    int* arr;
+public:
+    safeArray();
+    safeArray(int);
+    int pushback(int val);
+    ~safeArray();
+    int at(int);
+    int add(int position, int element);
+    safeArray(const safeArray& array);
+    safeArray& operator=(const safeArray& rhs);
+};
+

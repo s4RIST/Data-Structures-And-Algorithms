@@ -1,0 +1,118 @@
+#include <iostream>
+using namespace std;
+#include "safeArray.h"
+
+safeArray::safeArray()
+{
+    size = 10;
+    arr = new int[size];
+}
+
+
+safeArray::safeArray(int size)
+{
+    arr = new int[size];
+    if (size > 15) {
+        for (int i = 0; i < size; i++) //loop over the array to insert values.
+        {
+            arr[i] = 0;
+            cout << arr[i];
+        }
+    }
+    else
+        for (int i = 0; i < size; i++) //loop over the array to insert values.
+        {
+            arr[i] = i;
+            cout << arr[i];
+        }
+}
+
+int safeArray::pushback(int val) {
+    if (size == capacity) {
+        cout << "\nPushback\n";
+        int* temp = arr;
+        arr = new int[size * 2];
+
+        for (int i = 0; i < size; i++) {
+            arr[i] = temp[i];
+        }
+        for (int i = size; i < size * 2; i++) {
+            arr[i] = 0;
+        }
+        delete[] temp;
+        temp = nullptr;
+        capacity = capacity* 2; 
+
+        if (capacity > size) {
+            arr[size] = val;
+            size++;
+        }
+        return 0;
+    }
+}
+
+int safeArray::at(int p)
+{
+    //if() do this tomorrow, make loop for index and size
+    return arr[p];
+}
+
+
+int safeArray::add(int position, int element)
+{
+    arr[position] = element;
+    return 0;
+}
+
+
+safeArray::~safeArray()
+{
+    delete[] arr;
+    arr = nullptr;  // (>>>>RAW POINTER<<<< IS POINTING AT NOTHING)
+
+    cout << "\nDestructor called\n" << endl;
+}
+
+
+safeArray::safeArray(const safeArray& array) {
+    cout << "\nCopy Constructor Called\n";
+    size = array.size;
+    capacity = array.capacity;
+    arr = new int[capacity];
+
+    for (int i = 0; i < capacity; i++)
+        arr[i] = array.arr[i];
+}
+
+
+safeArray& safeArray::operator=(const safeArray& rhs)
+{
+    delete[] arr;
+    cout << "\nCopy Assignment Called\n";
+    size = rhs.size;
+    capacity = rhs.capacity;
+    arr = new int[size]; //new array with pointer of size
+
+    if (this != &rhs)
+    {
+        for (int i = 0; i < size; i++) {
+            arr[i] = rhs.arr[i];
+        }
+    }
+    return *this;
+    cout << "In the Copy Assignment Operator" << endl;
+}
+
+
+ostream& operator<<(ostream& lhs, const safeArray& rhs) 
+{
+    for (int i = 0; i < rhs.size; i++) {
+        lhs << rhs.arr[i];
+    }
+    return lhs;
+}
+
+
+
+//I want    L9 cout << "Number at pos 7 = " 
+
